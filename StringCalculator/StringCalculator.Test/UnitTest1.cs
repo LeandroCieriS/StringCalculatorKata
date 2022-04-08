@@ -51,7 +51,9 @@ namespace StringCalculator.Test
                 return 0;
             if (input.Equals("1"))
                 return 1;
-            return 2;
+            if (input.Equals("2"))
+                return 2;
+            return 3;
         }
     }
 }
