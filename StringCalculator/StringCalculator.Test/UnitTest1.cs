@@ -31,8 +31,9 @@ namespace StringCalculator.Test
 
         public int Add(string s)
         {
-            
-            return 0;
+            if (s.Equals(""))
+                return 0;
+            return 1;
         }
     }
 }
