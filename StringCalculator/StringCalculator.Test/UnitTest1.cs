@@ -29,6 +29,14 @@ namespace StringCalculator.Test
 
             Assert.AreEqual(expected, stringCalculator.Add(input));
         }
+
+        [Test]
+
+        public void ReturnAdditionWhenInputIs2Numbers()
+        {
+
+            Assert.AreEqual(3, stringCalculator.Add("1,2"));
+        }
     }
 
     public class StringCalculator
