@@ -1,0 +1,16 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=264a46c8_002D355f_002D4126_002Db2fc_002Dc34b76ed6614/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Return0WhenEmptyString #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::146D7BF1-E8F0-4B5E-8858-536FD6E4FBBE::.NETCoreApp,Version=v3.1::StringCalculator.Test.StringCalculatorShould.Return0WhenEmptyString&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=75d88917_002D0ea6_002D44f5_002D812b_002Dee88595f4468/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="StringCalculatorShould" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::146D7BF1-E8F0-4B5E-8858-536FD6E4FBBE::.NETCoreApp,Version=v3.1::StringCalculator.Test.StringCalculatorShould&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c06e14c1_002Db759_002D4c76_002D8376_002Dabbcf16a1cae/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Return0WhenEmptyString" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::146D7BF1-E8F0-4B5E-8858-536FD6E4FBBE::.NETCoreApp,Version=v3.1::StringCalculator.Test.StringCalculatorShould.Return0WhenEmptyString&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
