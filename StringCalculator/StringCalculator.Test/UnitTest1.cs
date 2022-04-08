@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using NUnit.Framework;
 
 namespace StringCalculator.Test
@@ -46,7 +47,9 @@ namespace StringCalculator.Test
         {
             if (input.Equals(""))
                 return 0;
-            return int.Parse(input);
+            var spplitedInput = input.Split(",");
+            var convertedInput = Array.ConvertAll(spplitedInput, s => int.Parse(s));
+            return convertedInput.Sum();
         }
     }
 }
