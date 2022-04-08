@@ -51,6 +51,13 @@ namespace StringCalculator.Test
 
             Assert.AreEqual(6, stringCalculator.Add("1\n2,3"));
         }
+
+        [Test]
+        public void LetUserIntroduceNewSeparator()
+        {
+
+            Assert.AreEqual(5, stringCalculator.Add("//;\n2;3"));
+        }
     }
 
     public class StringCalculator
@@ -58,11 +65,18 @@ namespace StringCalculator.Test
 
         public int Add(string input)
         {
+            var separator = ",";
             if (input.Equals(""))
                 return 0;
-            input = input.Replace("\n", ",");
-            var spplitedInput = input.Split(",");
-            var convertedInput = Array.ConvertAll(spplitedInput, s => int.Parse(s));
+            if (input.Contains("//"))
+            {
+                separator = input[2].ToString();
+                input = input.Substring(4);
+            }
+
+            input = input.Replace("\n", separator);
+            var spitedInput = input.Split(separator);
+            var convertedInput = Array.ConvertAll(spitedInput, s => int.Parse(s));
             return convertedInput.Sum();
         }
     }
