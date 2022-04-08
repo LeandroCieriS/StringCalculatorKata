@@ -44,6 +44,13 @@ namespace StringCalculator.Test
 
             Assert.AreEqual(6, stringCalculator.Add("1,2,3"));
         }
+
+        [Test]
+        public void ReturnAdditionWhenInputHasNewLineSeparator()
+        {
+
+            Assert.AreEqual(6, stringCalculator.Add("1\n2,3"));
+        }
     }
 
     public class StringCalculator
