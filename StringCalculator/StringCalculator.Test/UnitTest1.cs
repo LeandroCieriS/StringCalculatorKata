@@ -14,7 +14,7 @@ namespace StringCalculator.Test
         {
             var stringCalculator = new StringCalculator();
 
-            Assert.AreEqual(1, stringCalculator.Add("1"));
+            Assert.AreEqual(0, stringCalculator.Add(""));
         }
     }
 
@@ -23,7 +23,7 @@ namespace StringCalculator.Test
 
         public int Add(string s)
         {
-            throw new System.NotImplementedException();
+            return 0;
         }
     }
 }
