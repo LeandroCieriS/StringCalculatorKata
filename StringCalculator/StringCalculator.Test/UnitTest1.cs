@@ -24,14 +24,22 @@ namespace StringCalculator.Test
 
             Assert.AreEqual(1, stringCalculator.Add("1"));
         }
+
+        [Test]
+        public void Return2WhenInputIsTwo()
+        {
+            var stringCalculator = new StringCalculator();
+
+            Assert.AreEqual(2, stringCalculator.Add("2"));
+        }
     }
 
     public class StringCalculator
     {
 
-        public int Add(string s)
+        public int Add(string input)
         {
-            if (s.Equals(""))
+            if (input.Equals(""))
                 return 0;
             return 1;
         }
