@@ -16,6 +16,14 @@ namespace StringCalculator.Test
 
             Assert.AreEqual(0, stringCalculator.Add(""));
         }
+
+        [Test]
+        public void Return1WhenInputIsOne()
+        {
+            var stringCalculator = new StringCalculator();
+
+            Assert.AreEqual(1, stringCalculator.Add("1"));
+        }
     }
 
     public class StringCalculator
@@ -23,6 +31,7 @@ namespace StringCalculator.Test
 
         public int Add(string s)
         {
+            
             return 0;
         }
     }
