@@ -32,11 +32,17 @@ namespace StringCalculator.Test
         }
 
         [Test]
-
         public void ReturnAdditionWhenInputIs2Numbers()
         {
 
             Assert.AreEqual(3, stringCalculator.Add("1,2"));
+        }
+
+        [Test]
+        public void ReturnAdditionWhenInputIs3Numbers()
+        {
+
+            Assert.AreEqual(6, stringCalculator.Add("1,2,3"));
         }
     }
 
