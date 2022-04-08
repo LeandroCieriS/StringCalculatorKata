@@ -60,6 +60,7 @@ namespace StringCalculator.Test
         {
             if (input.Equals(""))
                 return 0;
+            input = input.Replace("\n", ",");
             var spplitedInput = input.Split(",");
             var convertedInput = Array.ConvertAll(spplitedInput, s => int.Parse(s));
             return convertedInput.Sum();
