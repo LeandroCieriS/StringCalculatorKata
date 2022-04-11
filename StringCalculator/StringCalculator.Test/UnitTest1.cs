@@ -32,10 +32,18 @@ namespace StringCalculator.Test
         }
 
         [Test]
-        public void ReturnAdditionOfTwoNumber()
+        public void ReturnAdditionOfTwoNumbers()
         {
             
             Assert.AreEqual(3,stringCalculator.Add("1,2"));
+        }
+
+
+        [Test]
+        public void ReturnAdditionOfTwoNumbers23()
+        {
+
+            Assert.AreEqual(3, stringCalculator.Add("2,3"));
         }
     }
 
