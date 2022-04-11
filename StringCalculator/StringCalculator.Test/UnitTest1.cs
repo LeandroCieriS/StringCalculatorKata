@@ -53,7 +53,9 @@ namespace StringCalculator.Test
                 return 0;
             if (empty == "1")
                 return 1;
-            return 2;
+            if (empty == "2")
+                return 2;
+            return 3;
         }
     }
 }
