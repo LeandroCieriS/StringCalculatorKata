@@ -30,6 +30,13 @@ namespace StringCalculator.Test
 
             Assert.AreEqual(expected, stringCalculator.Add(input));
         }
+
+        [Test]
+        public void ReturnAdditionOfTwoNumber()
+        {
+            
+            Assert.AreEqual(3,stringCalculator.Add("1,2"));
+        }
     }
 
     public class StringCalculator
