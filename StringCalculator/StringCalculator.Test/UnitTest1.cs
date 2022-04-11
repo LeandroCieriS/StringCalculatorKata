@@ -20,7 +20,7 @@ namespace StringCalculator.Test
         }
 
         [Test]
-        public void ReturnNumberWheninputIsSingleNumber()
+        public void ReturnNumberWhenInputIsSingleNumber()
         {
             var stringCalculator = new StringCalculator();
 
@@ -34,7 +34,9 @@ namespace StringCalculator.Test
     {
         public int Add(string empty)
         {
-            return 0;
+            if (empty == "")
+                return 0;
+            return 1;
         }
     }
 }
