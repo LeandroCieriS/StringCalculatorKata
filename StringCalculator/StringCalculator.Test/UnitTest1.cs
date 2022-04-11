@@ -36,6 +36,13 @@ namespace StringCalculator.Test
             Assert.AreEqual(2, stringCalculator.Add("2"));
         }
 
+        [Test]
+        public void ReturnNumberWhenInputIsSingleNumber3()
+        {
+            var stringCalculator = new StringCalculator();
+
+            Assert.AreEqual(3, stringCalculator.Add("3"));
+        }
     }
 
     public class StringCalculator
