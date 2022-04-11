@@ -44,7 +44,9 @@ namespace StringCalculator.Test
         {
             if (empty == "")
                 return 0;
-            return 1;
+            if (empty == "1")
+                return 1;
+            return 2;
         }
     }
 }
