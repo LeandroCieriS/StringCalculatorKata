@@ -22,9 +22,9 @@ namespace StringCalculator.Test
         }
 
         [Test]
-        [TestCase(1,"1")]
-        [TestCase(2,"2")]
-        [TestCase(3,"3")]
+        [TestCase(1, "1")]
+        [TestCase(2, "2")]
+        [TestCase(3, "3")]
         public void ReturnNumberWhenInputIsSingleNumber(int expected, string input)
         {
 
@@ -32,19 +32,15 @@ namespace StringCalculator.Test
         }
 
         [Test]
-        public void ReturnAdditionOfTwoNumbers()
-        {
-            
-            Assert.AreEqual(3,stringCalculator.Add("1,2"));
-        }
-
-
-        [Test]
-        public void ReturnAdditionOfTwoNumbers23()
+        [TestCase(3, "1,2")]
+        [TestCase(5, "2,3")]
+        [TestCase(7, "3,4")]
+        public void ReturnAdditionOfTwoNumbers(int expected, string input)
         {
 
-            Assert.AreEqual(3, stringCalculator.Add("2,3"));
+            Assert.AreEqual(expected, stringCalculator.Add(input));
         }
+
     }
 
     public class StringCalculator
@@ -53,9 +49,8 @@ namespace StringCalculator.Test
         {
             if (input == "")
                 return 0;
-            if (input == "1,2")
-                return 3;
-            return int.Parse(input);
+            var splitInput = input.Split(",");
+            return splitInput.Select(int.Parse).Sum();
         }
     }
 }
