@@ -27,7 +27,15 @@ namespace StringCalculator.Test
             Assert.AreEqual(1,stringCalculator.Add("1"));
         }
 
-      
+
+        [Test]
+        public void ReturnNumberWhenInputIsSingleNumber2()
+        {
+            var stringCalculator = new StringCalculator();
+
+            Assert.AreEqual(2, stringCalculator.Add("2"));
+        }
+
     }
 
     public class StringCalculator
