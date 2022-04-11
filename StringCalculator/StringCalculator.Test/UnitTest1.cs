@@ -6,56 +6,39 @@ namespace StringCalculator.Test
 {
     public class StringCalculatorShould
     {
+        private StringCalculator stringCalculator;
+
         [SetUp]
         public void Setup()
         {
+            stringCalculator = new StringCalculator();
         }
 
         [Test]
         public void Return0WhenEmptyString()
         {
-            var stringCalculator = new StringCalculator();
 
             Assert.AreEqual(0, stringCalculator.Add(""));
         }
 
         [Test]
-        public void ReturnNumberWhenInputIsSingleNumber()
+        [TestCase(1,"1")]
+        [TestCase(2,"2")]
+        [TestCase(3,"3")]
+        public void ReturnNumberWhenInputIsSingleNumber(int expected, string input)
         {
-            var stringCalculator = new StringCalculator();
 
-            Assert.AreEqual(1,stringCalculator.Add("1"));
-        }
-
-
-        [Test]
-        public void ReturnNumberWhenInputIsSingleNumber2()
-        {
-            var stringCalculator = new StringCalculator();
-
-            Assert.AreEqual(2, stringCalculator.Add("2"));
-        }
-
-        [Test]
-        public void ReturnNumberWhenInputIsSingleNumber3()
-        {
-            var stringCalculator = new StringCalculator();
-
-            Assert.AreEqual(3, stringCalculator.Add("3"));
+            Assert.AreEqual(expected, stringCalculator.Add(input));
         }
     }
 
     public class StringCalculator
     {
-        public int Add(string empty)
+        public int Add(string input)
         {
-            if (empty == "")
+            if (input == "")
                 return 0;
-            if (empty == "1")
-                return 1;
-            if (empty == "2")
-                return 2;
-            return 3;
+            return int.Parse(input);
         }
     }
 }
