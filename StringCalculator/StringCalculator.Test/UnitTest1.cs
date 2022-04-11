@@ -41,6 +41,18 @@ namespace StringCalculator.Test
             Assert.AreEqual(expected, stringCalculator.Add(input));
         }
 
+        [Test]
+        public void ReturnAdditionOfAnyNumbers()
+        {
+
+            Assert.AreEqual(4, stringCalculator.Add("1,2,1"));
+        }
+
+        [Test]
+        public void UseNewLineAsSeparator()
+        {
+            Assert.AreEqual(4, stringCalculator.Add("1,2\n1"));
+        }
     }
 
     public class StringCalculator
@@ -49,6 +61,7 @@ namespace StringCalculator.Test
         {
             if (input == "")
                 return 0;
+            input = input.Replace("\n", ",");
             var splitInput = input.Split(",");
             return splitInput.Select(int.Parse).Sum();
         }
