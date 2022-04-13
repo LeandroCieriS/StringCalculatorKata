@@ -78,6 +78,12 @@ namespace StringCalculator.Test
 
             Assert.AreEqual(1004, stringCalculator.Add("//;\n1;2000;3;1001;1000"));
         }
+
+        [Test]
+        public void AllowMultipleCharactersAsSeparator()
+        {
+            Assert.AreEqual(1004, stringCalculator.Add("//***\n1***2000***3***1001***1000"));
+        }
     }
 
     public class StringCalculator
