@@ -54,7 +54,7 @@ namespace StringCalculator.Test
         public void UseNewLineAsSeparator()
         {
 
-            Assert.AreEqual(6, stringCalculator.Add("1,2\\n3"));
+            Assert.AreEqual(6, stringCalculator.Add("1,2\n3"));
         }
     }
 
@@ -64,6 +64,7 @@ namespace StringCalculator.Test
         {
             if (input == "")
                 return 0;
+            input = input.Replace("\n", ",");
             var splitInput = input.Split(",");
             return splitInput.Select(int.Parse).Sum();
         }
