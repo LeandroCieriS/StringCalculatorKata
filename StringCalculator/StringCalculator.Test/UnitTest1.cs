@@ -32,9 +32,11 @@ namespace StringCalculator.Test
         }
 
         [Test]
-        public void ReturnAdditionWhenInputIsTwoNumbers()
+        [TestCase(3, "1,2")]
+        [TestCase(4, "2,2")]
+        public void ReturnAdditionWhenInputIsTwoNumbers(int expected, string input)
         {
-            Assert.AreEqual(3, stringCalculator.Add("1,2"));
+            Assert.AreEqual(expected, stringCalculator.Add(input));
         }
     }
 
