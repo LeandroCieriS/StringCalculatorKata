@@ -71,6 +71,13 @@ namespace StringCalculator.Test
 
             Assert.Throws<InvalidOperationException>(() => stringCalculator.Add("1,2,-3"));
         }
+
+        [Test]
+        public void IgnoreNumbersBiggerThan1000()
+        {
+
+            Assert.AreEqual(1004, stringCalculator.Add("//;\n1;2000;3;1001;1000"));
+        }
     }
 
     public class StringCalculator
@@ -79,11 +86,17 @@ namespace StringCalculator.Test
         {
             if (string.IsNullOrWhiteSpace(input))
                 return 0;
-            input = ChangeSeparatorForComma(input);
-            var splitInput = input.Split(",");
+            var splitInput = SplitInput(input);
             var castInput = splitInput.Select(int.Parse);
             CheckForNegatives(castInput);
             return castInput.Sum();
+        }
+
+        private static string[] SplitInput(string input)
+        {
+            input = ChangeSeparatorForComma(input);
+            var splitInput = input.Split(",");
+            return splitInput;
         }
 
         private static void CheckForNegatives(IEnumerable<int> castInput)
