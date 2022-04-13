@@ -63,6 +63,13 @@ namespace StringCalculator.Test
 
             Assert.AreEqual(6, stringCalculator.Add("//;\n1;2;3"));
         }
+
+        [Test]
+        public void NotAllowNegativeNumbers()
+        {
+
+            Assert.Throws<InvalidOperationException>(() => stringCalculator.Add("1,2,-3"));
+        }
     }
 
     public class StringCalculator
@@ -74,7 +81,10 @@ namespace StringCalculator.Test
             input = ChangeSeparator(input);
             input = input.Replace("\n", ",");
             var splitInput = input.Split(",");
-            return splitInput.Select(int.Parse).Sum();
+            var castInput = splitInput.Select(int.Parse);
+            if (castInput.Any(n => n < 0))
+                throw new InvalidOperationException("Negatives not allowed");
+            return castInput.Sum();
         }
 
         private static string ChangeSeparator(string input)
