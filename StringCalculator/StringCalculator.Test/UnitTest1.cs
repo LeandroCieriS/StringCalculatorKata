@@ -116,7 +116,9 @@ namespace StringCalculator.Test
         {
             if (input.StartsWith("//"))
             {
-                input = input.Replace(input[2].ToString(), ",");
+                var separatorLength = input.IndexOf("\n") - 2;
+                var separator = input.Substring(2, separatorLength);
+                input = input.Replace(separator, ",");
                 input = input[4..];
             }
 
