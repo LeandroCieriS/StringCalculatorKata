@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using NUnit.Framework;
@@ -78,16 +79,21 @@ namespace StringCalculator.Test
         {
             if (string.IsNullOrWhiteSpace(input))
                 return 0;
-            input = ChangeSeparator(input);
-            input = input.Replace("\n", ",");
+            input = ChangeSeparatorForComma(input);
             var splitInput = input.Split(",");
             var castInput = splitInput.Select(int.Parse);
-            if (castInput.Any(n => n < 0))
-                throw new InvalidOperationException("Negatives not allowed");
+            CheckForNegatives(castInput);
             return castInput.Sum();
         }
 
-        private static string ChangeSeparator(string input)
+        private static void CheckForNegatives(IEnumerable<int> castInput)
+        {
+            var negativeNumbers = castInput.Where(n => n < 0).ToList();
+            if (negativeNumbers.Any())
+                throw new InvalidOperationException($"Negatives not allowed {string.Join(", ", negativeNumbers)}");
+        }
+
+        private static string ChangeSeparatorForComma(string input)
         {
             if (input.StartsWith("//"))
             {
@@ -95,6 +101,7 @@ namespace StringCalculator.Test
                 input = input[4..];
             }
 
+            input = input.Replace("\n", ",");
             return input;
         }
     }
