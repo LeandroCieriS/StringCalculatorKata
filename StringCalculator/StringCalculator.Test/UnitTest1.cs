@@ -56,6 +56,13 @@ namespace StringCalculator.Test
 
             Assert.AreEqual(6, stringCalculator.Add("1,2\n3"));
         }
+
+        [Test]
+        public void LetUserChangeSeparator()
+        {
+
+            Assert.AreEqual(6, stringCalculator.Add("//;\n1;2;3"));
+        }
     }
 
     public class StringCalculator
