@@ -87,7 +87,7 @@ namespace StringCalculator.Test
             if (string.IsNullOrWhiteSpace(input))
                 return 0;
             var splitInput = SplitInput(input);
-            var castInput = splitInput.Select(int.Parse);
+            var castInput = splitInput.Select(int.Parse).Where(n => n <= 1000);
             CheckForNegatives(castInput);
             return castInput.Sum();
         }
