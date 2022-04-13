@@ -25,10 +25,16 @@ namespace StringCalculator.Test
         [TestCase(1,"1")]
         [TestCase(2,"2")]
         [TestCase(3,"3")]
-        public void Return1WhenInputIsOne(int expected, string input)
+        public void ReturnNumberWhenInputIsThatNumber(int expected, string input)
         {
 
             Assert.AreEqual(expected, stringCalculator.Add(input));
+        }
+
+        [Test]
+        public void ReturnAdditionWhenInputIsTwoNumbers()
+        {
+            Assert.AreEqual(3, stringCalculator.Add("1,2"));
         }
     }
 
