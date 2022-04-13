@@ -23,11 +23,19 @@ namespace StringCalculator.Test
         }
 
         [Test]
-        public void Return1WhenNumberInput()
+        public void Return1WhenInputIsOne()
         {
             var stringCalculator = new StringCalculator();
 
             Assert.AreEqual(1, stringCalculator.Add("1"));
+        }
+
+        [Test]
+        public void Return2WhenInputIsTwo()
+        {
+            var stringCalculator = new StringCalculator();
+
+            Assert.AreEqual(2, stringCalculator.Add("2"));
         }
 
     }
