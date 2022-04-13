@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using NUnit.Framework;
 
 namespace StringCalculator.Test
@@ -18,7 +19,7 @@ namespace StringCalculator.Test
         {
             var stringCalculator = new StringCalculator();
 
-            Assert.AreEqual("0", stringCalculator.Add(""));
+            Assert.AreEqual(0, stringCalculator.Add(""));
         }
 
     }
@@ -27,7 +28,7 @@ namespace StringCalculator.Test
     {
         public int Add(string input)
         {
-            throw new NotImplementedException();
+            return 0;
         }
     }
 }
