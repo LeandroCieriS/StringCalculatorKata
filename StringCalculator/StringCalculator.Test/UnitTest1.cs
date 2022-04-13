@@ -41,10 +41,15 @@ namespace StringCalculator.Test
         }
 
         [Test]
-        public void ReturnAdditionWhenInputIsAnyNumbers()
+        [TestCase(6, "1,2,3")]
+        [TestCase(9, "2,2,1,4")]
+        [TestCase(12, "2,1,6,1,2")]
+        public void ReturnAdditionWhenInputIsAnyNumbers(int expected, string input)
         {
-            Assert.AreEqual(6, stringCalculator.Add("1,2,3"));
+
+            Assert.AreEqual(expected, stringCalculator.Add(input));
         }
+
     }
 
     public class StringCalculator
