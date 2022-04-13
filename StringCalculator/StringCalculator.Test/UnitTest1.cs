@@ -69,10 +69,17 @@ namespace StringCalculator.Test
     {
         public int Add(string input)
         {
+            var separator = ",";
             if (input == "")
                 return 0;
-            input = input.Replace("\n", ",");
-            var splitInput = input.Split(",");
+            if (input.StartsWith("//"))
+            {
+                separator = input[2].ToString();
+                input = input[4..];
+            }
+                
+            input = input.Replace("\n", separator);
+            var splitInput = input.Split(separator);
             return splitInput.Select(int.Parse).Sum();
         }
     }
