@@ -50,6 +50,12 @@ namespace StringCalculator.Test
             Assert.AreEqual(expected, stringCalculator.Add(input));
         }
 
+        [Test]
+        public void UseNewLineAsSeparator()
+        {
+
+            Assert.AreEqual(6, stringCalculator.Add("1,2\\n3"));
+        }
     }
 
     public class StringCalculator
