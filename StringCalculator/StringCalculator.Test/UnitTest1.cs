@@ -46,9 +46,8 @@ namespace StringCalculator.Test
         {
             if (input == "")
                 return 0;
-            if (input == "1,2")
-                return 3;
-            return int.Parse(input);
+            var splitInput = input.Split(",");
+            return splitInput.Select(int.Parse).Sum();
         }
     }
 }
