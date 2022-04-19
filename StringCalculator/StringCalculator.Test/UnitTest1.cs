@@ -62,7 +62,7 @@ namespace StringCalculator.Test
         public void LetUserChangeSeparator()
         {
 
-            Assert.AreEqual(6, stringCalculator.Add("//;\n1;2;3"));
+            Assert.AreEqual(6, stringCalculator.Add("//[;]\n1;2;3"));
         }
 
         [Test]
@@ -76,21 +76,23 @@ namespace StringCalculator.Test
         public void IgnoreNumbersBiggerThan1000()
         {
 
-            Assert.AreEqual(1004, stringCalculator.Add("//;\n1;2000;3;1001;1000"));
+            Assert.AreEqual(1004, stringCalculator.Add("//[;]\n1;2000;3;1001;1000"));
         }
 
         [Test]
         public void AllowMultipleCharactersAsSeparator()
         {
 
-            Assert.AreEqual(1004, stringCalculator.Add("//***\n1***2000***3***1001***1000"));
+            Assert.AreEqual(1004, stringCalculator.Add("//[***]\n1***2000***3***1001***1000"));
         }
 
         [Test]
-        public void AllowMultipleUniqueSeparators()
+        [TestCase("//[*][%]\n1*2000*3%1001*1000", 1004)]
+        [TestCase("//[*][%][-][.]\n1.2000*3%1001-1000", 1004)]
+        public void AllowMultipleUniqueSeparators(string input, int expected)
         {
 
-            Assert.AreEqual(1004, stringCalculator.Add("//[*][%]\n1*2000*3%1001*1000"));
+            Assert.AreEqual(expected, stringCalculator.Add(input));
         }
     }
 
@@ -101,7 +103,7 @@ namespace StringCalculator.Test
             if (string.IsNullOrWhiteSpace(input))
                 return 0;
             var splitInput = SplitInput(input);
-            var castInput = splitInput.Select(int.Parse).Where(n => n <= 1000);
+            var castInput = splitInput.Select(int.Parse).Where(n => n <= 1000).ToList();
             CheckForNegatives(castInput);
             return castInput.Sum();
         }
@@ -124,14 +126,31 @@ namespace StringCalculator.Test
         {
             if (input.StartsWith("//"))
             {
-                var separatorLength = input.IndexOf("\n") - 2;
-                var separator = input.Substring(2, separatorLength);
-                input = input.Replace(separator, ",");
-                input = input[4..];
+                input = input[2..];
+                input = ReplaceSeparators(input);
             }
 
             input = input.Replace("\n", ",");
             return input;
+        }
+
+        private static string ReplaceSeparators(string input)
+        {
+            var separatorLength = input.IndexOf("]") - 1;
+            var separator = input.Substring(input.IndexOf("[") + 1, separatorLength);
+            input = input.Replace(separator, ",");
+            input = DeleteSeparator(input);
+            return InputHasMoreSeparators(input) ? ReplaceSeparators(input) : input[1..];
+        }
+
+        private static string DeleteSeparator(string input)
+        {
+            return input[(input.IndexOf("]") + 1)..];
+        }
+
+        private static bool InputHasMoreSeparators(string input)
+        {
+            return input.IndexOf("[") != -1;
         }
     }
 }
